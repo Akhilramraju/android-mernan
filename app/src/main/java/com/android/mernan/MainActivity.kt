@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.mernan.api.SearchResult
 import com.android.mernan.api.createGitHubApiService
 import com.android.mernan.models.Repo
+import com.android.mernan.repodetails.RepoDetailsActivity
 import com.android.mernan.reposlist.ReposAdapter
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         adapter = ReposAdapter {repo ->
-            Toast.makeText(this,repo.name,Toast.LENGTH_SHORT  ).show()
+            RepoDetailsActivity.startActivity(this,repo)
         }
 
         val list : RecyclerView = findViewById(R.id.list)
